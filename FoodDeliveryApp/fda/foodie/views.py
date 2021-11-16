@@ -16,3 +16,10 @@ def index(request):
         allFoods.append([foods, range(1, nSlides), nSlides])
     params = {'allFoods': allFoods}
     return render(request, "foodie/index.html", params)
+
+
+def view(request, food_id):
+    fid = Foods.objects.filter(id=food_id)
+    print(fid)
+    params = {'fid': fid}
+    return render(request, "foodie/view.html", params)

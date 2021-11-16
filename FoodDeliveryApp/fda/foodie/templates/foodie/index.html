@@ -1,6 +1,7 @@
 {% extends 'foodie/basic.html' %} {% block title %} Foodie {% endblock title %}
 {% block style %} {%endblock style%} {% block body %} {% load static %} 
-{% for foods, range, nSlides in allFoods %} {% if foods.0.category == "res" %}
+{% for foods, range, nSlides in allFoods %} 
+{% if foods.0.category == "res" %}
 <div class="container">
   <h6 class="my-4">
     <i class="bi bi-cursor-fill"></i> Top Resturants - Hotels - Dhabas
@@ -22,9 +23,7 @@
           <p class="card-text">{{i.res_adrs}}</p>
           <div class="d-flex justify-content-center align-items-center">
             <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">
-                View
-              </button>
+              <p><a class="btn btn-sm btn-outline-secondary" id='v{{i.id}}' href="/foodie/view/{{i.id}}">View</a></p>
             </div>
           </div>
         </div>
@@ -49,9 +48,17 @@
         height="140"
         alt=""
       />
-      <p><a class="btn btn-sm btn-outline-secondary my-3" href="#">{{i.res_name}}</a></p>
+      <p><a class="btn btn-sm btn-outline-secondary my-3" id='v{{i.id}}' href="/foodie/view/{{i.id}}">{{i.res_name}}</a></p>
     </div>
     {% endfor %}
   </div>
 </div>
-{% endif %} {% endfor %} {% endblock body %} {% block js %}{% endblock js %}
+{% endif %} 
+
+{% endfor %} 
+{% endblock body %}
+{% block js %}
+<script>
+  
+</script>
+{% endblock js %}

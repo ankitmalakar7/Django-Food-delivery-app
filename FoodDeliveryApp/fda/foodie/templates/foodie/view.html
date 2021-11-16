@@ -1,0 +1,61 @@
+{% extends 'foodie/basic.html' %} {% block body %} {% for fid in fid %} 
+{% if fid.res_name == "Biriyani House" %}
+<div class="container">
+  <div
+    class="
+      row
+      g-0
+      border
+      rounded
+      overflow-hidden
+      flex-md-row
+      mb-4
+      shadow-sm
+      h-md-250
+      position-relative
+      my-3
+    "
+  >
+    <div class="col p-4 d-flex flex-column position-static my-4">
+      <h3 class="mb-0">{{fid.res_name}}</h3>
+      <div class="mb-1 text-muted">{{fid.res_adrs}}</div>
+      <p class="card-text mb-auto">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam suscipit quasi optio.
+      </p>
+    </div>
+    <div class="col-auto d-none d-lg-block">
+      <img src="https://media.gettyimages.com/photos/special-lucknowi-bengali-dish-named-calcutta-nawabi-mutton-biryani-picture-id512245526?k=20&m=512245526&s=612x612&w=0&h=738qQDjM9vGKRQHqLUj1ERpXB4FLRO8CSdUHM5iWwzc=" class="bd-placeholder-img" width="300" height="250" alt="" />
+    </div>
+  </div>
+  <div class="row align-items-md-stretch">
+    <div class="col-md-6">
+      <div class="h-100 p-5 text-white bg-dark rounded-3">
+        <h2>Chicken Biriyani</h2>
+        <p>
+          <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
+        </p>
+        <button class="btn btn-outline-light mx-4 my-4" type="button">
+          Add to cart <i class="bi bi-cart"></i>
+        </button>
+        <button class="btn btn-outline-light" type="button">
+          Order Now
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="h-100 p-5 bg-light border rounded-3">
+        <h2>Mutton Biriyani</h2>
+        <p>
+          <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
+        </p>
+        <button class="btn btn-outline-dark mx-4 my-4" type="button">
+          Add to cart <i class="bi bi-cart"></i>
+        </button>
+        <button class="btn btn-outline-dark" type="button">
+          Order Now
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %} {% endfor %} {% endblock body %}
