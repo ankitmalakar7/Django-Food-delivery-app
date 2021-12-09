@@ -70,21 +70,10 @@
               </ul>
             </li>
           </ul>
-          <button
-            type="button"
-            id="pop"
-            class="btn btn-outline-dark mx-2"
-            data-bs-container="body"
-            data-bs-toggle="popover"
-            data-bs-placement="bottom"
-            data-bs-html="true"
-            data-bs-content="Bottom popover"
-          >
-            <i class="bi bi-cart-check"></i>
-          </button>
+          {% block nav %}{% endblock nav %}
           <form class="d-flex">
             <input
-              class="form-control me-2"
+              class="form-control me-2 mx-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
@@ -108,11 +97,7 @@
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
       crossorigin="anonymous"
     ></script>
-    <script>
-      $(function () {
-        $('[data-bs-toggle="popover"]').popover()
-      })
-    </script>
+    <script></script>
     {% block js %}{% endblock js %}
   </body>
 </html>

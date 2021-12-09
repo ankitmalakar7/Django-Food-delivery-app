@@ -1,4 +1,31 @@
-{% extends 'foodie/basic.html' %} {% block body %} {% for fid in fid %} 
+{% extends 'foodie/basic.html' %} {% block nav %}
+<button
+  type="button"
+  id="popover"
+  class="btn btn-outline-dark position-relative"
+  data-bs-container="body"
+  data-bs-toggle="popover"
+  data-bs-placement="bottom"
+  data-bs-html="true"
+  data-bs-content=""
+>
+  <i class="bi bi-cart-check"></i
+  ><span
+    class="
+      position-absolute
+      top-0
+      start-100
+      translate-middle
+      badge
+      rounded-pill
+      bg-primary
+      my-1
+    "
+    id="cart"
+    >0</span
+  >
+</button>
+{% endblock nav %} {% block body %} {% for fid in fid %} 
 {% if fid.res_name == "Biriyani House" %}
 <div class="container">
   <div
@@ -20,46 +47,75 @@
       <h3 class="mb-0">{{fid.res_name}}</h3>
       <div class="mb-1 text-muted">{{fid.res_adrs}}</div>
       <p class="card-text mb-auto">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam suscipit quasi optio.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam
+        nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam
+        suscipit quasi optio.
       </p>
     </div>
     <div class="col-auto d-none d-lg-block">
-      <img src="../../../media/foodie/images/Biriyani_House.jpg" class="bd-placeholder-img" width="300" height="250" alt="" />
+      <img
+        src="../../../media/foodie/images/Biriyani_House.jpg"
+        class="bd-placeholder-img"
+        width="300"
+        height="250"
+        alt=""
+      />
     </div>
   </div>
   <div class="row align-items-md-stretch">
     <div class="col-md-6">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
-        <h2>Chicken Biriyani</h2>
-        <p>
-          <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
-        </p>
-        <button class="btn btn-outline-light mx-4 my-4" type="button">
+        <span id="namer1f1"><h2>Chicken Biriyani</h2></span>
+        <span id="pricer1f1"
+          ><b><i class="bi bi-tags"></i> {{fid.price}} Rs</b></span
+        >
+      <span id="divfdr1f1" class="divfd">
+        <button
+          class="btn btn-outline-light cart mx-4 my-4"
+          id="r1f1"
+          type="button"
+        >
           Add to cart <i class="bi bi-cart"></i>
         </button>
-        <button class="btn btn-outline-light" type="button">
-          Order Now
-        </button>
+        <button
+        class="btn btn-outline-light remove mx-4 my-4"
+        id="r1f1"
+        type="button"
+        >
+        Remove from cart <i class="bi bi-trash"></i>
+      </button>
+    </span>
+        <button class="btn btn-outline-light" type="button">Order Now</button>
       </div>
     </div>
     <div class="col-md-6">
       <div class="h-100 p-5 bg-light border rounded-3">
-        <h2>Mutton Biriyani</h2>
-        <p>
-          <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
-        </p>
-        <button class="btn btn-outline-dark mx-4 my-4" type="button">
+        <span id="namer1f2"><h2>Mutton Biriyani</h2></span>
+        <span id="pricer1f2"
+          ><b><i class="bi bi-tags"></i> {{fid.price}} Rs</b></span
+        >
+        <span id="divfdr1f2" class="divfd">
+        <button
+          class="btn btn-outline-dark cart mx-4 my-4"
+          id="r1f2"
+          type="button"
+        >
           Add to cart <i class="bi bi-cart"></i>
         </button>
-        <button class="btn btn-outline-dark" type="button">
-          Order Now
-        </button>
+        <button
+        class="btn btn-outline-dark remove mx-4 my-4"
+        id="r1f2"
+        type="button"
+        >
+        Remove from cart <i class="bi bi-trash"></i>
+      </button>
+      </span>
+        <button class="btn btn-outline-dark" type="button">Order Now</button>
       </div>
     </div>
   </div>
 </div>
-{% endif %}
-{% if fid.res_name == "The Veg Box" %}
+{% endif %} {% if fid.res_name == "The Veg Box" %}
 <div class="container">
   <div
     class="
@@ -80,46 +136,75 @@
       <h3 class="mb-0">{{fid.res_name}}</h3>
       <div class="mb-1 text-muted">{{fid.res_adrs}}</div>
       <p class="card-text mb-auto">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam suscipit quasi optio.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam
+        nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam
+        suscipit quasi optio.
       </p>
     </div>
     <div class="col-auto d-none d-lg-block">
-      <img src="../../../media/foodie/images/panner.jpg" class="bd-placeholder-img" width="300" height="250" alt="" />
+      <img
+        src="../../../media/foodie/images/panner.jpg"
+        class="bd-placeholder-img"
+        width="300"
+        height="250"
+        alt=""
+      />
     </div>
   </div>
   <div class="row align-items-md-stretch">
     <div class="col-md-6">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
-        <h2>Paneer Puff</h2>
-        <p>
-          <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
-        </p>
-        <button class="btn btn-outline-light mx-4 my-4" type="button">
+        <span id="namer2f1"><h2>Paneer Puff</h2></span>
+        <span id="pricer2f1"
+          ><b><i class="bi bi-tags"></i> {{fid.price}} Rs</b></span
+        >
+        <span id="divfdr2f1" class="divfd">
+        <button
+          class="btn btn-outline-light cart mx-4 my-4"
+          id="r2f1"
+          type="button"
+        >
           Add to cart <i class="bi bi-cart"></i>
         </button>
-        <button class="btn btn-outline-light" type="button">
-          Order Now
-        </button>
+        <button
+        class="btn btn-outline-light remove mx-4 my-4"
+        id="r2f1"
+        type="button"
+        >
+        Remove from cart <i class="bi bi-trash"></i>
+      </button>
+      </span>
+        <button class="btn btn-outline-light" type="button">Order Now</button>
       </div>
     </div>
     <div class="col-md-6">
       <div class="h-100 p-5 bg-light border rounded-3">
-        <h2>Veg Patties</h2>
-        <p>
-          <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
-        </p>
-        <button class="btn btn-outline-dark mx-4 my-4" type="button">
+        <span id="namer2f2"><h2>Veg Patties</h2></span>
+        <span id="pricer2f2"
+          ><b><i class="bi bi-tags"></i> {{fid.price}} Rs</b></span
+        >
+        <span id="divfdr2f2" class="divfd">
+        <button
+          class="btn btn-outline-dark cart mx-4 my-4"
+          id="r2f2"
+          type="button"
+        >
           Add to cart <i class="bi bi-cart"></i>
         </button>
-        <button class="btn btn-outline-dark" type="button">
-          Order Now
-        </button>
+        <button
+        class="btn btn-outline-dark remove mx-4 my-4"
+        id="r2f2"
+        type="button"
+        >
+        Remove from cart <i class="bi bi-trash"></i>
+      </button>
+      </span>
+        <button class="btn btn-outline-dark" type="button">Order Now</button>
       </div>
     </div>
   </div>
 </div>
-{% endif %}
-{% if fid.res_name == "Ice Corner" %}
+{% endif %} {% if fid.res_name == "Ice Corner" %}
 <div class="container">
   <div
     class="
@@ -140,32 +225,50 @@
       <h3 class="mb-0">{{fid.res_name}}</h3>
       <div class="mb-1 text-muted">{{fid.res_adrs}}</div>
       <p class="card-text mb-auto">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam suscipit quasi optio.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam
+        nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam
+        suscipit quasi optio.
       </p>
     </div>
     <div class="col-auto d-none d-lg-block">
-      <img src="../../../media/foodie/images/IceCream.jpg" class="bd-placeholder-img" width="300" height="250" alt="" />
+      <img
+        src="../../../media/foodie/images/IceCream.jpg"
+        class="bd-placeholder-img"
+        width="300"
+        height="250"
+        alt=""
+      />
     </div>
   </div>
   <div class="row align-items-md-stretch">
     <div class="col-md-6">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
-        <h2>Butterscotch</h2>
-        <p>
+        <span id="namer3f1"> <h2>Butterscotch</h2> </span>
+        <span id="pricer3f1">
           <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
-        </p>
-        <button class="btn btn-outline-light mx-4 my-4" type="button">
+        </span>
+        <span id="divfdr3f1" class="divfd">
+        <button
+          class="btn btn-outline-light cart mx-4 my-4"
+          id="r3f1"
+          type="button"
+        >
           Add to cart <i class="bi bi-cart"></i>
         </button>
-        <button class="btn btn-outline-light" type="button">
-          Order Now
-        </button>
+        <button
+        class="btn btn-outline-light remove mx-4 my-4"
+        id="r3f1"
+        type="button"
+        >
+        Remove from cart <i class="bi bi-trash"></i>
+      </button>
+      </span>
+        <button class="btn btn-outline-light" type="button">Order Now</button>
       </div>
     </div>
   </div>
 </div>
-{% endif %}
-{% if fid.res_name == "The Cake Shop" %}
+{% endif %} {% if fid.res_name == "The Cake Shop" %}
 <div class="container">
   <div
     class="
@@ -186,33 +289,99 @@
       <h3 class="mb-0">{{fid.res_name}}</h3>
       <div class="mb-1 text-muted">{{fid.res_adrs}}</div>
       <p class="card-text mb-auto">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam suscipit quasi optio.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto nam
+        nobis dolore aliquam aspernatur quidem nihil quos! Modi nihil magnam
+        suscipit quasi optio.
       </p>
     </div>
     <div class="col-auto d-none d-lg-block">
-      <img src="../../../media/foodie/images/Cakes.jpg" class="bd-placeholder-img" width="300" height="250" alt="" />
+      <img
+        src="../../../media/foodie/images/Cakes.jpg"
+        class="bd-placeholder-img"
+        width="300"
+        height="250"
+        alt=""
+      />
     </div>
   </div>
   <div class="row align-items-md-stretch">
     <div class="col-md-6">
       <div class="h-100 p-5 text-white bg-dark rounded-3">
-        <h2>Butterscotch</h2>
-        <p>
+        <span><h2>id="namer1f1"Butterscotch</h2> </span
+        ><span>
+          id="pricer4f1">
           <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
-        </p>
-        <button class="btn btn-outline-light mx-4 my-4" type="button">
+        </span>
+        <span id="divfdr4f1" class="divfd">
+        <button
+          class="btn btn-outline-light cart mx-4 my-4"
+          id="r4f1"
+          type="button"
+        >
           Add to cart <i class="bi bi-cart"></i>
         </button>
-        <button class="btn btn-outline-light" type="button">
-          Order Now
-        </button>
+        <button
+        class="btn btn-outline-light remove mx-4 my-4"
+        id="r4f1"
+        type="button"
+        >
+        Remove from cart <i class="bi bi-trash"></i>
+      </button>
+      </span>
+        <button class="btn btn-outline-light" type="button">Order Now</button>
       </div>
     </div>
   </div>
 </div>
-{% endif %}
-
-{% endfor %} 
-{% endblock body %}
-{% block js %}
+{% endif %} {% endfor %} {% endblock body %} {% block js %}
+<script>
+  $(function () {
+    $('[data-bs-toggle="popover"]').popover();
+  });
+  if(localStorage.getItem('cart') == null){
+    var cart = {};
+  }
+  else{
+    var cart = JSON.parse(localStorage.getItem('cart'));
+    updateCart(cart);
+  }
+  $('button.cart').click(function () {
+    var id = $(this).attr('id');
+    var name = $('#name' + id).text();
+    var price = $('#price' + id).text();
+    var quantity = 1;
+    if (cart[id] == null) {
+      cart[id] = {
+        name: name,
+        price: price,
+        quantity: quantity
+      };
+    } else {
+      cart[id].quantity++;
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart(cart);
+  });
+  function updateCart(cart) {
+    var sum = 0;
+    for (var item in cart) {
+      sum += cart[item].quantity;
+      console.log(cart[item].quantity);
+      
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    $('#cart').text(sum);
+  }
+  $('button.remove').click(function () {
+    cart = JSON.parse(localStorage.getItem('cart'));
+    var id = $(this).attr('id');
+    if (cart[id].quantity > 0) {
+      cart[id].quantity--;
+    } else {
+      delete cart[id];
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart(cart);
+  });
+</script>
 {% endblock js %}
