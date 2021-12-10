@@ -1,4 +1,5 @@
 {% extends 'foodie/basic.html' %} {% block nav %}
+<a href="/foodie/checkout">
 <button
   type="button"
   id="popover"
@@ -25,6 +26,7 @@
     >0</span
   >
 </button>
+</a>
 {% endblock nav %} {% block body %} {% for fid in fid %} 
 {% if fid.res_name == "Biriyani House" %}
 <div class="container">
@@ -375,10 +377,8 @@
   $('button.remove').click(function () {
     cart = JSON.parse(localStorage.getItem('cart'));
     var id = $(this).attr('id');
-    if (cart[id].quantity > 0) {
-      cart[id].quantity--;
-    } else {
-      delete cart[id];
+    if (cart[id].quantity != 0) {
+      cart[id].quantity = 0;
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCart(cart);

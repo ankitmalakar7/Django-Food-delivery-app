@@ -23,3 +23,6 @@ def view(request, food_id):
     print(fid)
     params = {'fid': fid}
     return render(request, "foodie/view.html", params)
+
+def checkout(request):
+    return render(request, "foodie/checkout.html")
