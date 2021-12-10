@@ -53,7 +53,7 @@ ROOT_URLCONF = 'fda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['fda/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
