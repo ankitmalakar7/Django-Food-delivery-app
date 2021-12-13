@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Foods
+from .models import Foods, Order
 import math as m
 
 
@@ -24,5 +24,22 @@ def view(request, food_id):
     params = {'fid': fid}
     return render(request, "foodie/view.html", params)
 
+
 def checkout(request):
+    if request.method == "POST":
+        items_json = request.POST.get('itemJSON', '')
+        amount = request.POST.get('amount', '')
+        name = request.POST.get('name', '')
+        email = request.POST.get('email', '')
+        address = request.POST.get('address1', '') + " " + request.POST.get('address2', '')
+        city = request.POST.get('city', '')
+        state = request.POST.get('state', '')
+        zip_code = request.POST.get('zip', '')
+        phone = request.POST.get('phone', '')
+        order = Order(items_json=items_json, amount=amount, name=name, email=email, address=address, city=city,
+                      state=state, zip_code=zip_code, phone=phone)
+        order.save()
+        thank = True
+        id = order.order_id
+        return render(request, "foodie/checkout.html", {'thank': thank, 'id': id})
     return render(request, "foodie/checkout.html")

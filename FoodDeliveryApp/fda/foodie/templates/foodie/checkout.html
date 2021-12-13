@@ -18,7 +18,7 @@
               <h6 class="my-0">Product name</h6>
               <small class="text-muted">Quantity</small>
             </div>
-            <span class="text-muted">Total Price(Rs.)</span>
+            <span class="text-muted" id="total" name="total">Total Price(Rs.)</span>
           </li>
           <li class="list-group-item d-flex justify-content-between bg-light">
             <div class="text-success">
@@ -39,6 +39,8 @@
         <h4 class="mb-3">Billing address</h4>
         <form class="needs-validation" method='post' action='/foodie/checkout/'>
           {% csrf_token %}
+          <input type="hidden" name="itemJSON" id="itemJSON">
+          <input type="hidden" name="amount" id="amount">
           <div class="row g-3">
             <div class="col-sm-6">
               <label for="firstName" class="form-label">Name</label>
@@ -46,6 +48,7 @@
                 type="text"
                 class="form-control"
                 id="Name"
+                name="name"
                 placeholder=""
                 value=""
                 required=""
@@ -59,6 +62,7 @@
                 type="text"
                 class="form-control"
                 id="phone"
+                name="phone"
                 placeholder=""
                 value=""
                 required=""
@@ -72,6 +76,7 @@
                 type="email"
                 class="form-control"
                 id="email"
+                name="email"
                 placeholder="you@example.com"
                 required=""
               />
@@ -85,7 +90,8 @@
               <input
                 type="text"
                 class="form-control"
-                id="address"
+                id="address1"
+                name="address1"
                 placeholder="1234 Main St"
                 required=""
               />
@@ -102,19 +108,20 @@
                 type="text"
                 class="form-control"
                 id="address2"
+                name="address2"
                 placeholder="Apartment or suite"
               />
             </div>
 
             <div class="col-md-5">
               <label for="state" class="form-label">State</label>
-              <input type="text" class="form-control" id="state" />
+              <input type="text" class="form-control" id="state" name="state" />
               <div class="invalid-feedback">Please select a valid state.</div>
             </div>
 
             <div class="col-md-4">
               <label for="state" class="form-label">City</label>
-              <input type="text" class="form-control" id="state" required="" />
+              <input type="text" class="form-control" id="city" name="city" required="" />
               <div class="invalid-feedback">Please provide a valid state.</div>
             </div>
 
@@ -124,31 +131,14 @@
                 type="text"
                 class="form-control"
                 id="zip"
+                name="zip"
                 placeholder=""
                 required=""
               />
               <div class="invalid-feedback">Zip code required.</div>
             </div>
           </div>
-
           <hr class="my-4" />
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="same-address" />
-            <label class="form-check-label" for="same-address"
-              >Shipping address is the same as my billing address</label
-            >
-          </div>
-
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="save-info" />
-            <label class="form-check-label" for="save-info"
-              >Save this information for next time</label
-            >
-          </div>
-
-          <hr class="my-4" />
-
           <button class="w-100 btn btn-primary btn-lg" type="submit">
             Continue to checkout
           </button>
@@ -196,5 +186,12 @@
       $("#items").append(str);
     }
   }
+  $("#itemJSON").val(JSON.stringify(cart));
+  $("#amount").val(total);
+  {% if thank %}
+  alert("Thank you for your order. We will contact you soon. Your order id is @foodie#{{ id }}");
+  localStorage.clear();
+  document.location.href = "/foodie/";
+  {% endif %}
 </script>
 {% endblock js %}
