@@ -1,5 +1,5 @@
 {% extends 'foodie/basic.html' %} {% block title %} Foodie {% endblock title %}
-{% block style %} {%endblock style%} {% block body %} {% load static %} 
+{% block body %} {% load static %} 
 {% for foods, range, nSlides in allFoods %} {% if foods.0.category == "res" %}
 <div class="container">
   <h6 class="my-4">

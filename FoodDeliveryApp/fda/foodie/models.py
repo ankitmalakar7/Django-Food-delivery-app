@@ -14,3 +14,18 @@ class Foods(models.Model):
 
     def __str__(self):
         return self.res_name
+
+class Order(models.Model):
+    order_id = models.AutoField(primary_key=True)
+    items_json = models.CharField(max_length=5000)
+    amount = models.IntegerField(default=0)
+    name = models.CharField(max_length=90)
+    phone = models.IntegerField()
+    email = models.EmailField(max_length=90)
+    address = models.CharField(max_length=200)
+    state = models.CharField(max_length=20)
+    city = models.CharField(max_length=20)
+    zip_code = models.IntegerField()
+
+    def __str__(self):
+        return str(self.order_id)
