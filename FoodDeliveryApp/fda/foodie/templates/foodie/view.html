@@ -2,10 +2,8 @@
 <a href="/foodie/checkout">
   <button
     type="button"
-    id="popover"
     class="btn btn-outline-dark position-relative"
     data-bs-container="body"
-    data-bs-toggle="popover"
     data-bs-placement="bottom"
     data-bs-html="true"
     data-bs-content=""
@@ -87,7 +85,7 @@
             Remove from cart <i class="bi bi-trash"></i>
           </button>
         </span>
-        <button class="btn btn-outline-light" type="button">Order Now</button>
+        <a href="/foodie/checkout"><button class="btn btn-outline-dark" type="button">Order Now</button></a>
       </div>
     </div>
     <div class="col-md-6">
@@ -112,7 +110,7 @@
             Remove from cart <i class="bi bi-trash"></i>
           </button>
         </span>
-        <button class="btn btn-outline-dark" type="button">Order Now</button>
+        <a href="/foodie/checkout"><button class="btn btn-outline-dark" type="button">Order Now</button></a>
       </div>
     </div>
   </div>
@@ -176,7 +174,7 @@
             Remove from cart <i class="bi bi-trash"></i>
           </button>
         </span>
-        <button class="btn btn-outline-light" type="button">Order Now</button>
+        <a href="/foodie/checkout"><button class="btn btn-outline-dark" type="button">Order Now</button></a>
       </div>
     </div>
     <div class="col-md-6">
@@ -201,7 +199,7 @@
             Remove from cart <i class="bi bi-trash"></i>
           </button>
         </span>
-        <button class="btn btn-outline-dark" type="button">Order Now</button>
+        <a href="/foodie/checkout"><button class="btn btn-outline-dark" type="button">Order Now</button></a>
       </div>
     </div>
   </div>
@@ -265,7 +263,7 @@
             Remove from cart <i class="bi bi-trash"></i>
           </button>
         </span>
-        <button class="btn btn-outline-light" type="button">Order Now</button>
+        <a href="/foodie/checkout"><button class="btn btn-outline-dark" type="button">Order Now</button></a>
       </div>
     </div>
   </div>
@@ -308,7 +306,7 @@
   </div>
   <div class="row align-items-md-stretch">
     <div class="col-md-6">
-      <div class="h-100 p-5 text-white bg-dark rounded-3">
+      <a class="h-100 p-5 text-white bg-dark rounded-3">
         <span id="namer4f1"><h2>Choco world</h2> </span
         ><span id="pricer4f1">
           <b><i class="bi bi-tags"></i> {{fid.price}} Rs</b>
@@ -329,16 +327,18 @@
             Remove from cart <i class="bi bi-trash"></i>
           </button>
         </span>
-        <button class="btn btn-outline-light" type="button">Order Now</button>
+        <a href="/foodie/checkout"><button class="btn btn-outline-light" type="button">Order Now</button>
+        </a>
       </div>
     </div>
   </div>
 </div>
-{% endif %} {% endfor %} {% endblock body %} {% block js %}
+{% endif %} {% endfor %}
+<footer class="my-5 pt-5 text-muted text-center text-small">
+  <p class="mb-1">Made by Ankit Malakar</p>
+</footer>
+{% endblock body %} {% block js %}
 <script>
-  $(function () {
-    $('[data-bs-toggle="popover"]').popover();
-  });
   if (localStorage.getItem("cart") == null) {
     var cart = {};
   } else {
@@ -366,7 +366,6 @@
     var sum = 0;
     for (var item in cart) {
       sum += cart[item].quantity;
-      console.log(cart[item].quantity);
     }
     localStorage.setItem("cart", JSON.stringify(cart));
     $("#cart").text(sum);

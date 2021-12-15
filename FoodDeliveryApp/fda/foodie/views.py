@@ -43,3 +43,19 @@ def checkout(request):
         id = order.order_id
         return render(request, "foodie/checkout.html", {'thank': thank, 'id': id})
     return render(request, "foodie/checkout.html")
+
+def search(request):
+    search = request.GET.get('search')
+    allFoods = []
+    catz_foods = Foods.objects.values('category', 'id')
+    cats = {item['category'] for item in catz_foods}
+    for cat in cats:
+        foods_temp = Foods.objects.filter(category=cat)
+        foods = [item for item in foods_temp if search in item.res_name]
+        n = len(foods)
+        nSlides = n // 4 + m.ceil((n / 4) - (n // 4))
+        allFoods.append([foods, range(1, nSlides), nSlides])
+    params = {'allFoods': allFoods, 'message': ''}
+    if len(allFoods) == 0 or len(search) < 3:
+        params = {'message': 'No results found'}
+    return render(request, "foodie/search.html", params)
