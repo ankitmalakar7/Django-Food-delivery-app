@@ -24,7 +24,8 @@ https://user-images.githubusercontent.com/84442212/146319169-ccdee28d-dd0f-4aef-
 To run this project 
 
 ```bash
-
+  git clone https://github.com/ankitmalakar7/Django-Food-delivery-app.git
+  cd fda
   python manage.py runserver
 ```
 For django admin
