@@ -10,9 +10,9 @@ This is a user friendly food delivery by which you can order food and get it at 
 - signup & login verifications
 - search hotels/resturants or food by category
 - cart for order items
-- Cross platform
 - uses Django Admin
-- alert after every order checkouts
+- alert with order id after every order checkouts
+- Cross platform
 
 ## Demo
 
@@ -44,3 +44,4 @@ For adding photos through django admin
   pip install pillow
 ```
 
+and obviously, it's free to use...
