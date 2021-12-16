@@ -1,7 +1,7 @@
 
 # Foodie
 
-This is a user friendly food delivery by which you can order food and get it at your doorstep.
+This is a user friendly food delivery app by which you can order food and get it at your doorstep.
 
 
 
